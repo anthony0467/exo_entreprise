@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail d'un employé{% endblock %}
+
+{% block body %}
+    <h1>{{ employe }}</h1>
+    <p> {{ employe.ville }}</p>
+    <a href="{{ path('show_entreprise', {'id': employe.entreprise.id})}}"> {{ employe.entreprise }}</a>
+    <p> date d'embauche :  {{ employe.dateEmbauche | date('d/m/Y') }}</p>
+    <p> date de naissance :  {{ employe.dateNaissance | date('d/m/Y') }}</p>
+    <p>Age : {{ employe.age }} ans</p>
+{% endblock %}

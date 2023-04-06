@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EntrepriseController!{% endblock %}
+
+{% block body %}
+<h1>Liste des entreprises</h1>
+
+<a class="btn btn-primary" href="{{ path('add_entreprise')}}">Ajouter une entreprise </a> <br>
+
+{% for entreprise in entreprises %}
+            <a href="{{ path('show_entreprise', {'id': entreprise.id})}}">{{ entreprise.raisonSociale ~ ' (' ~ entreprise.ville ~ ' )' }}</a>
+            <a class="btn btn-warning" href="{{ path('edit_entreprise', {'id': entreprise.id})}}">Edit</a>
+            <a class="btn btn-danger" href="{{ path('delete_entreprise', {'id': entreprise.id})}}">Delete</a> <br>
+        {% endfor %}
+
+        
+{% endblock %}
